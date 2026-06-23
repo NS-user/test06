@@ -1,9 +1,12 @@
 name: Deploy to GitHub Pages
 
-# main へ push したとき、または手動実行時にビルドして Pages へデプロイする
+# main または作業ブランチへ push したとき、もしくは手動実行時に
+# ビルドして Pages へデプロイする
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - claude/global-search-trends-app-m7jj65
   workflow_dispatch:
 
 # Pages デプロイに必要な権限
@@ -38,6 +41,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Pages が未有効でも自動で有効化する（GitHub Actions ソース）
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
