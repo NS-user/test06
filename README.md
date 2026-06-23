@@ -23,6 +23,21 @@ npm run build    # 本番ビルド (dist/)
 npm run preview  # ビルド結果のプレビュー
 ```
 
+## デプロイ（GitHub Pages）
+
+`main` ブランチへ push すると、GitHub Actions
+（`.github/workflows/deploy.yml`）が自動でビルドして GitHub Pages に公開します。
+手動実行（Actions タブの「Run workflow」）にも対応しています。
+
+公開 URL: `https://ns-user.github.io/test06/`
+
+**初回のみ必要な設定**（リポジトリの Settings → Pages）:
+
+- **Source** を **「GitHub Actions」** に設定してください。
+
+> プロジェクトサイトは `/test06/` 配下で配信されるため、`vite.config.js` で
+> 本番ビルド時のみ `base: '/test06/'` を付与しています。
+
 ## データについて
 
 本アプリは**内蔵のサンプルデータ**で動作します。Google Trends には公式 API が
